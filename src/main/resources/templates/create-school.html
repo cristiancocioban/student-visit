@@ -3,13 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Create School</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
 </head>
 <body>
-<form action="#" th:action="@{/school/create}" th:object="${school}" method="post">
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-    <input type="submit" value="Add School">
-</form>
+<br/>
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <div class="ui items">
+            <div class="item">
+                <div class="content">
+                    <a href="/"  class="header" style="font-size:1em">
+                        <h2 class="ui teal image header">
+                            <img th:src="@{/resources/images/all-star-education-logo.png}" class="image" style="width:150px">
+                            <div class="content">
+                                SCHOOLS
+                            </div>
+                        </h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/>
+<div class="main ui container">
+    <div class="middle aligned center  column">
+        <div class="ui segment">
+            <form action="#" th:action="@{/school/create}" th:object="${school}" method="post" class="ui form">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" required th:field="*{name}" id="name" placeholder="Name" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII='); cursor: auto;">
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                </div>
+                <div class="field">
+                    <label for="phone">Phone</label>
+                    <input type="text" th:field="*{phone}" id="phone" placeholder="Phone" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII='); cursor: auto;">
+                    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="text" th:field="*{email}" id="email" placeholder="Email" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII='); cursor: auto;">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                </div>
+                <div class="field">
+                    <label for="website">Website</label>
+                    <input type="text" th:field="*{website}" id="website" placeholder="Website" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII='); cursor: auto;">
+                    <span th:if="${#fields.hasErrors('website')}" th:errors="*{website}"></span>
+                </div>
+                <input type="submit" class="ui button" value="Add School">
+                <a href="/">
+                    <div class="ui button">
+                         Cancel
+                    </div>
+                </a>
+            </form>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>

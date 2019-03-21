@@ -1,5 +1,7 @@
 package com.rsystems.studentvisit.Model;
 
+import org.springframework.beans.factory.annotation.Required;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +12,11 @@ public class School {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(unique=true, nullable=false)
     private String name;
+    private String phone;
+    private String email;
+    private String website;
 
     public int getId() {
         return id;
@@ -26,5 +32,29 @@ public class School {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 }

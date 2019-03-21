@@ -3,30 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Schools</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
 </head>
 <body>
-<div th:switch="${schools}">
-    <h2 th:case="null">No schools yet!</h2>
-    <div th:case="*">
-        <h2>Schools</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="school : ${schools}">
-                <td th:text="${school.name}"></td>
-                <td><a th:href="@{/school/edit/{id}(id=${school.id})}">Edit</a></td>
-                <td><a th:href="@{/school//delete/{id}(id=${school.id})}">Delete</a></td>
-            </tr>
-            </tbody>
-        </table>
+<br/>
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <div class="ui items">
+            <div class="item">
+                <div class="content">
+                    <a href="/"  class="header" style="font-size:1em">
+                        <h2 class="ui teal image header">
+                            <img th:src="@{/resources/images/all-star-education-logo.png}" class="image" style="width:150px">
+                            <div class="content">
+                                SCHOOLS
+                            </div>
+                        </h2>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <p><a href="/school/create">Add a new school</a></p>
+</div>
+<br/><br/>
+<div class="main ui container">
+    <div class="ui middle aligned center">
+        <div th:switch="${schools}">
+            <h2 th:case="null">No schools yet!</h2>
+            <div th:case="*">
+                <table class="ui celled table">
+                    <thead>
+                    <tr>
+                        <th class="header six wide">Name</th>
+                        <th class="header two wide">Phone</th>
+                        <th class="header two wide">Email</th>
+                        <th class="header four wide">Website</th>
+                        <th style="text-align:center" class="header two wide">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="school : ${schools}">
+                        <td >
+                            <div class="ui items">
+                                <div class="item">
+                                    <div class="content">
+                                        <a th:href="@{/school/edit/{id}(id=${school.id})}"  class="header" style="font-size:1em">
+                                            <i class="edit outline icon"></i>
+                                            <span th:text="${school.name}"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td >
+                            <div th:text="${school.phone}"></div>
+                        </td>
+                        <td >
+                            <div th:text="${school.email}"></div>
+                        </td>
+                        <td >
+                            <div th:text="${school.website}"></div>
+                        </td>
+                        <td style="text-align:center">
+                            <div class="ui items">
+                                <div class="item">
+                                    <div class="content">
+                                        <a th:href="@{/school//delete/{id}(id=${school.id})}" onclick="return confirm('Are you sure?')" class="header" style="font-size:1em">
+                                            <i class="trash alternate outline icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot class="full-width">
+                        <tr>
+
+                            <th colspan="5">
+                                <a href="/school/create">
+                                    <div class="ui right floated small grey labeled icon button">
+                                        <i class="university icon"></i> Add School
+                                    </div>
+                                </a>
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

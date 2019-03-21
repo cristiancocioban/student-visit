@@ -32,6 +32,7 @@ public class SchoolController {
 
     @PostMapping("/create")
     public RedirectView create(@Valid School school, BindingResult result) {
+        if(school.getName().isEmpty()) return new RedirectView("/school/create");
 
         if (result.hasErrors()) {
             return new RedirectView("/school/create");
@@ -48,10 +49,12 @@ public class SchoolController {
     @PostMapping("/update/{id}")
     public RedirectView update(@PathVariable("id") Integer id, @Valid School school,
                                          BindingResult result) {
-        logger.error("here1");
+        if(school.getName().isEmpty()) {
+            school.setId(id);
+            return new RedirectView("/school/edit/"+id);
+        }
+
         if (result.hasErrors()) {
-            logger.error("here");
-            logger.error(result.toString());
             school.setId(id);
             return new RedirectView("/school/edit/"+id);
         }
