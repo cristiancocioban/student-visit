@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name="Contact")
+@Table(name="Contact", schema = "salesforce")
 public class Student {
     @Id
     private String id;
