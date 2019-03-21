@@ -1,0 +1,7 @@
+{
+  "name": "Student Visit",
+  "description": "A simple web app to demo Heroku Connect",
+  "repository": "https://github.com/cristiancocioban/student-visit",
+  "logo": "https://developer-donorportal.cs32.force.com/schooljobs/servlet/servlet.ImageServer?id=015r0000000Hc5o&oid=00Dr00000001P7n",
+  "keywords": ["java", "java-spring"]
+}
