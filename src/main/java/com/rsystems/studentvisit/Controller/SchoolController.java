@@ -36,7 +36,6 @@ public class SchoolController {
         if (result.hasErrors()) {
             return new RedirectView("/school/create");
         }
-        school.setId(UUID.randomUUID().toString());
         schoolRepository.save(school);
         return new RedirectView("/school");
     }
@@ -47,7 +46,7 @@ public class SchoolController {
     }
 
     @PostMapping("/update/{id}")
-    public RedirectView update(@PathVariable("id") String id, @Valid School school,
+    public RedirectView update(@PathVariable("id") Integer id, @Valid School school,
                                          BindingResult result) {
         logger.error("here1");
         if (result.hasErrors()) {
@@ -62,7 +61,7 @@ public class SchoolController {
     }
 
     @GetMapping("/edit/{id}")
-    public String showUpdateForm(@PathVariable("id") String id, Model model) {
+    public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
         School school = schoolRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
 
@@ -71,7 +70,7 @@ public class SchoolController {
     }
 
     @GetMapping("/delete/{id}")
-    public RedirectView deleteUser(@PathVariable("id") String id) {
+    public RedirectView deleteUser(@PathVariable("id") Integer id) {
         School school = schoolRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid school Id:" + id));
         schoolRepository.delete(school);

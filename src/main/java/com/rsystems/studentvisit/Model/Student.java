@@ -1,16 +1,14 @@
 package com.rsystems.studentvisit.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name="Contact", schema = "salesforce")
 public class Student {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column(name = "firstname")
     private String firstName;
     @Column(name = "lastname")
@@ -23,11 +21,11 @@ public class Student {
     @Column(name = "accountid")
     private String schoolId;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
