@@ -15,6 +15,7 @@ public class School {
     @Column(unique=true, nullable=false)
     private String name;
     private String phone;
+    @Column(name = "email__c")
     private String email;
     private String website;
 
