@@ -7,21 +7,18 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name="\"Contact\"")
+@Table(name="Contact")
 public class Student {
     @Id
-    @Column(name = "\"Id\"")
     private String id;
-    @Column(name = "\"FirstName\"")
     private String firstName;
-    @Column(name = "\"LastName\"")
     private String lastName;
-    @Column(name = "\"Type__c\"")
+    @Column(name = "type")
     private String contactType;
-    @Column(name = "\"Visit_Date__c\"")
+    @Column(name = "visit_date__c")
     private Date visitDate;
 
-    @Column(name = "\"AccountId\"")
+    @Column(name = "accountid")
     private String schoolId;
 
     public String getId() {

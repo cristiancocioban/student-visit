@@ -7,10 +7,9 @@ import javax.persistence.Table;
 
 @Entity
 
-@Table(name="\"Account\"")
+@Table(name="account")
 public class School {
     @Id
-    @Column(name="\"Id\"")
     private String id;
 
     @Column(name="\"Name\"")
