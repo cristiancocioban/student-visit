@@ -11,9 +11,11 @@ import java.util.Date;
 public class Student {
     @Id
     private String id;
+    @Column(name = "firstname")
     private String firstName;
+    @Column(name = "lastname")
     private String lastName;
-    @Column(name = "type")
+    @Column(name = "type__c")
     private String contactType;
     @Column(name = "visit_date__c")
     private Date visitDate;

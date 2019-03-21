@@ -12,7 +12,6 @@ public class School {
     @Id
     private String id;
 
-    @Column(name="\"Name\"")
     private String name;
 
     public String getId() {
